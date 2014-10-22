@@ -30,18 +30,18 @@
 	var hours=[];// 0-72
 	var payRates=[];
 	var grossPay=[];
-	var taxs=[];
+	var taxes=[];
 	var netPay=[];
 	
 	//First elements
 	hours[0]=0;
 	payRates[0]=payRate;
 	grossPay[0]=0;
-	taxs[0]=0;
+	taxes[0]=0;
 	netPay[0]=0;
 	
 	//Fill the arrays
-	for(var hour=1;hour<=72;++hour){
+	for(var hour=1;hour<=72;hour++){
 		//Calculations
 		hours[hour]=hour;
 		if(hour<=dblT){
@@ -54,8 +54,8 @@
 				payRates[hour]=payRate*3;
 				grossPay[hour]=payRate*dblT+payRate*2*(trpT-dblT)+payRate*3*(hour-trpT);
 		}	
-		taxs[hour]=grossPay*(10/100);
-		netPay[hour]=grossPay-taxs[hour];
+		taxes[hour]=grossPay*(tax/100);
+		netPay[hour]=grossPay-taxes[hour];
 	}
 	//Output the conditions
 	document.write("<p>PayRate per Hours   = $"+payRate+"</p>");
@@ -63,6 +63,11 @@
 	document.write("<p>PayRate per Hours in DoubleTime   = $"+payRate*3+"</p>");	
 	document.write("<p>Tax count in NetPay   = "+tax+"%</p>");
 
+	// test arrays
+	for(var j=0;j<netPay.length;j++){
+		document.write(netPay[j]+"</br>");
+	}
+	
 </script>
 
 <table width="500" border="1">
@@ -74,20 +79,20 @@
     <th>NetPay $</th>
 
   </tr>
-<script type="text/javascript">
+	<script type="text/javascript">
 
-	//Display the table
-	for(var hour=1;hour<=72;++hour){
-		str+="<tr>";
-		str+=("<td>"+hours[hour].toFixed(2)+"</td>");
-		str+=("<td>"+payRate[hour].toFixed(2)+"</td>");
-		str+=("<td>"+grossPay[hour].toFixed(2)+"</td>");
-		str+=("<td>"+tax[hour].toFixed(2)+"</td>");
-		str+=("<td>"+netPay[hour].toFixed(2)+"</td>");
-		str+="</tr>";
-	}
-	document.write(str);
-</script>
+		//Display the table
+		for(var hour=1;hour<=72;hour++){
+			str+="<tr>";
+			str+=("<td>"+hours[hour].toFixed(2)+"</td>");
+			str+=("<td>"+payRate[hour].toFixed(2)+"</td>");
+			str+=("<td>"+grossPay[hour].toFixed(2)+"</td>");
+			str+=("<td>"+taxes[hour].toFixed(2)+"</td>");
+			str+=("<td>"+netPay[hour].toFixed(2)+"</td>");
+			str+="</tr>";
+		}
+		document.write(str);
+	</script>
 </table>
 </body>
 </html>
