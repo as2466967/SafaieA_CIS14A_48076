@@ -1,0 +1,23 @@
+<!DOCtype html>
+<html lang="en">
+	<head>
+		<title>untitled</title>
+		<meta charset="utf-8">
+		
+	<script src="cookies.js"></script>
+	
+	</head>
+	<body>
+	
+		<script>
+
+			var url= document.location.href;
+			var obj= getForm(url);
+			for(prop in obj){
+			document.write(prop+"="+obj[prop]+"</br>");
+			}
+
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,57 @@
+ <script type="text/javascript"> 
+ 	/* 
+ 		Azadeh Safaie 
+ 		October 14th, 2014  
+ 	*/ 
+ </script> 
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>PayCheckElseIf</title>
+		<meta charset="utf-8">
+		<link href="css.css" type="text/css" rel="stylesheet">
+	</head>
+	<body>
+	
+	<h1>PayCheckElseIf</h1>
+		<script>
+			var dblT= 20;	// double time begins after
+				//	rate*time*2
+			var trpT= 40;	//	trip time begins after
+				//	rate*time*3
+			var rate= 10;	//	pay rate per hour
+			var payChk= 0;	//	weekly pay check
+			var time=prompt("How many hours did you work this week?");	//	hours per week
+			
+			if(time<=dblT){
+				payChk=rate*time;
+			}else if(time<=trpT){
+				payChk=rate*dblT+rate*2*(time-dblT);
+			}else{
+				payChk=rate*dblT+rate*2*(trpT-dblT)+rate*3*(time-trpT);
+			}
+			</script>
+			
+			<table width="500" height="300" border="1">
+			<tr>
+			<td > <script>document.write("<p>Pay Rate = $"+rate+" per hour</p>");</script></td>
+			</tr>
+			<tr>
+			<td > <script>document.write("<p>Hours worked = "+time+" hours</p>");</script></td>
+			</tr>
+			<tr>
+			<td > <script>document.write("<p>Double time starts after "+dblT+" hours</p>");</script></td>
+			</tr>
+			<tr>
+			<td > <script>document.write("<p>Triple time starts after "+trpT+" hours</p>");</script></td>
+			</tr>
+			<tr>
+			<td > <script>document.write("<p>Pay check= $"+payChk+" for this week</p>");</script></td>
+			</tr>			
+			</table>
+
+
+		</script>
+	
+	</body>
+</html>

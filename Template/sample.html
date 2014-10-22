@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>untitled</title>
+		<meta charset="utf-8">
+			<script src="functionSample.js"></script>
+
+	</head>
+	<body>
+	
+	<script>
+		var num= ranNum();
+		var name=prompt("Enter your name");
+		document.write("<h1>"+num+"</h1>");
+		user(name);
+
+		var Val=new Object;
+		Val={
+		"name=Val":"name=Azi"
+		}
+		var Obj=JSON.parse(Val);
+		for (prop in Obj){
+		document.write(prop+"="+Obj[prop]);
+		}
+	</script>
+	
+	</body>
+</html>
+

@@ -1,0 +1,26 @@
+/* CSS  File  */
+
+table{
+	margin-right: auto;
+	margin-bottom: auto;
+	margin-left: auto;
+	margin-top: auto;
+	background-color: #FFFFFF;
+	border: 8px solid #312741;
+	border-spacing: 0px 0px;
+	border-radius: 8px;
+}
+body {
+	background-color: #575757;
+}
+td{
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+	text-align: center;
+	padding-bottom:10px;
+}
+h1{
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+	text-align: center;
+	color: #E0A015;
+	font-size: 50px;
+}

@@ -1,0 +1,93 @@
+ <script type="text/javascript"> 
+ 	/* 
+ 		Azadeh Safaie 
+ 		October 21th, 2014  
+ 	*/ 
+ </script> 
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>PayCheck Table 1Dimensional Array</title>
+		<meta charset="utf-8">
+		<link href="css.css" type="text/css" rel="stylesheet">
+	</head>
+    
+	<body>
+	<h1>PayCheck Table (1D)</h1>
+<script type="text/javascript">
+
+	//Table Varible
+	var dblT= 20;// double time begins after-	rate*hours*2
+	var trpT= 40;// trip time begins after- rate*hours*3
+	var grossPay= 0;// $ per payCheck befor tax, after dblT-trpT
+	var payRate= prompt("Please, enter your payRate.");// $ payRate per hour
+	var tax= 10;// tax per payChek
+	var netPay= 0;// $ net per payCheck
+	var str="";
+		
+	
+	//Declare payCheck arrays
+	var hours=[];// 0-72
+	var payRates=[];
+	var grossPay=[];
+	var taxs=[];
+	var netPay=[];
+	
+	//First elements
+	hours[0]=0;
+	payRates[0]=payRate;
+	grossPay[0]=0;
+	taxs[0]=0;
+	netPay[0]=0;
+	
+	//Fill the arrays
+	for(var hour=1;hour<=72;++hour){
+		//Calculations
+		hours[hour]=hour;
+		if(hour<=dblT){
+				payRates[hour]=payRate;
+				grossPay[hour]=payRate*hour;
+		}else if(hour<=trpT){
+				payRates[hour]=payRate*2;
+				grossPay[hour]=payRate*dblT+payRate*2*(hour-dblT);
+		}else{
+				payRates[hour]=payRate*3;
+				grossPay[hour]=payRate*dblT+payRate*2*(trpT-dblT)+payRate*3*(hour-trpT);
+		}	
+		taxs[hour]=grossPay*(10/100);
+		netPay[hour]=grossPay-taxs[hour];
+	}
+	//Output the conditions
+	document.write("<p>PayRate per Hours   = $"+payRate+"</p>");
+	document.write("<p>PayRate per Hours in DoubleTime   = $"+payRate*2+"</p>");	
+	document.write("<p>PayRate per Hours in DoubleTime   = $"+payRate*3+"</p>");	
+	document.write("<p>Tax count in NetPay   = "+tax+"%</p>");
+
+</script>
+
+<table width="500" border="1">
+  <tr>
+    <th>Hours</th>
+    <th>PayRate $ / Hours</th>
+    <th>GrossPay $</th>
+    <th>Tax $</th>
+    <th>NetPay $</th>
+
+  </tr>
+<script type="text/javascript">
+
+	//Display the table
+	for(var hour=1;hour<=72;++hour){
+		str+="<tr>";
+		str+=("<td>"+hours[hour].toFixed(2)+"</td>");
+		str+=("<td>"+payRate[hour].toFixed(2)+"</td>");
+		str+=("<td>"+grossPay[hour].toFixed(2)+"</td>");
+		str+=("<td>"+tax[hour].toFixed(2)+"</td>");
+		str+=("<td>"+netPay[hour].toFixed(2)+"</td>");
+		str+="</tr>";
+	}
+	document.write(str);
+</script>
+</table>
+</body>
+</html>

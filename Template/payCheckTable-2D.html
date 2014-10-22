@@ -1,0 +1,81 @@
+ <script type="text/javascript"> 
+ 	/* 
+ 		Azadeh Safaie 
+ 		October 21th, 2014  
+ 	*/ 
+ </script> 
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>PayCheck Table 2Dimensional Array</title>
+		<meta charset="utf-8">
+		<link href="css.css" type="text/css" rel="stylesheet">
+	</head>
+    
+<body>
+	<h1>PayCheck Table(2D)</h1>
+<script type="text/javascript">
+
+	//Table Varible
+	var hours= 72;// hours per payCheck-   0-72 hr
+		var dblT= 20;// double time begins after-	rate*time*2
+		var trpT= 40;// trip time begins after- rate*time*3
+	var grossPay=[payRate,(payRate*2),(payRate*3)];// $ payRate in regT, dbT or trpT 
+	var payRate= 10;// $ payRate per hour
+	var tax= 10;// tax per payChek
+	var netPay= 0;// $ net per payCheck
+		var balance = 0;// $ per payCheck befor tax  	
+		var str="";
+		
+	//Declare payCheck table
+	var payChTable=[];
+	var cols=5
+	for(var col=0;col<cols;col++){
+		payChTable[col]=[];
+	}
+	
+	//Initialize first elements
+	payChTable[0][0]=0;//hours columns
+	payChTable[1][0]=balance;//savings column
+	payChTable[2][0]=0;//interest column
+	payChTable[3][0]=0;//deposit column
+	payChTable[4][0]=0;//deposit column
+
+	//Populate the arrays
+	for(var year=1;year<=50;++year){
+		retTable[0][year]=year;
+		//Calculate the balance
+		//balance=balance*(1+intRate/100);
+		retTable[2][year]=retTable[1][year-1]*intRate/100
+		retTable[3][year]=deposit;
+		retTable[1][year]=retTable[1][year-1]+retTable[2][year]+retTable[3][year];	
+	}
+	//Output the initial conditions
+	document.write("<p>Initial Balance = $"+balance+"</p>");
+	document.write("<p>Interest Rate   = "+intRate+"%</p>");
+	document.write("<p>Yearly Deposit   = $"+deposit+"</p>");
+</script>
+
+<table width="200" border="1">
+  <tr>
+    <th>Year</th>
+    <th>Savings $</th>
+    <th>Interest $</th>
+    <th>Deposit $</th>
+  </tr>
+<script type="text/javascript">
+	//Display the table
+	for(var year=1;year<=50;++year){
+		str+="<tr>";
+		str+=("<td>"+retTable[0][year].toFixed(0)+"</td>");
+		for(var col=1;col<cols;col++){
+			str+=("<td>"+retTable[col][year].toFixed(2)+"</td>");
+		}
+		str+="</tr>";
+	}
+	document.write(str);
+</script>
+</table>
+	
+	</body>
+</html>
